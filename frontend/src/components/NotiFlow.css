@@ -1,0 +1,16 @@
+.noti-text {
+    display: inline-block;
+    position: absolute;
+    white-space: nowrap;
+    animation: flow 10s linear infinite;
+  }
+  
+  @keyframes flow {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
