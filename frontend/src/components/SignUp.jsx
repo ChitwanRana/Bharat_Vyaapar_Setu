@@ -19,6 +19,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Form Data:', formData);
 
     try {
       const response = await fetch("http://localhost:5000/auth/signup", {
@@ -157,11 +158,11 @@ const SignUp = () => {
                       <select
                         className="form-select"
                         id="accountType"
+                        name="accountType"
                         value={formData.accountType}
                         onChange={handleChange}
                         required
                       >
-                        <option value="">Select an account type</option>
                         <option value="seller">Seller</option>
                         <option value="buyer">Buyer</option>
                       </select>
