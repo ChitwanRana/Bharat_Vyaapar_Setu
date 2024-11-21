@@ -147,12 +147,12 @@ const Navbar = ({ page }) => {
           </ul>
           <ul className="nav">
             <li className="nav-item">
-              <a href="#" className="nav-link link-body-emphasis px-2">
+              <a href="/signin" className="nav-link link-body-emphasis px-2">
                 Login
               </a>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link link-body-emphasis px-2">
+              <a href="/signup" className="nav-link link-body-emphasis px-2">
                 Sign up
               </a>
             </li>
