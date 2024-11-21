@@ -1,8 +1,9 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import TopBar from "./TopBar";
 import NotiFlow from "./NotiFlow";
 
-const Navbar = ({ page }) => {
+const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
   return (
     <>
       <TopBar />
@@ -39,7 +40,7 @@ const Navbar = ({ page }) => {
               aria-label="Search"
             />
           </form>
-          {page === "buyer" && (
+          {accountType === "buyer" && (
             <div className="d-flex align-items-center">
               <a
                 href="#"
@@ -67,7 +68,7 @@ const Navbar = ({ page }) => {
         <div className="container d-flex flex-wrap">
           <ul className="nav me-auto">
             {/* Conditional rendering based on the 'page' prop */}
-            {page === "home" ? (
+            {accountType === "home" ? (
               <>
                 <li className="nav-item">
                   <a
@@ -89,7 +90,7 @@ const Navbar = ({ page }) => {
                   </a>
                 </li>
               </>
-            ) : page === "seller" ? (
+            ) : accountType === "seller" ? (
               <>
                 <li className="nav-item">
                   <a
@@ -116,7 +117,7 @@ const Navbar = ({ page }) => {
                   </a>
                 </li>
               </>
-            ) : page === "buyer" ? (
+            ) : accountType === "buyer" ? (
               <>
                 <li className="nav-item">
                   <a
@@ -146,16 +147,40 @@ const Navbar = ({ page }) => {
             ) : null}
           </ul>
           <ul className="nav">
-            <li className="nav-item">
-              <a href="/signin" className="nav-link link-body-emphasis px-2">
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a href="/signup" className="nav-link link-body-emphasis px-2">
-                Sign up
-              </a>
-            </li>
+            {!isLoggedIn ? (
+              <>
+                <li className="nav-item">
+                  <a
+                    href="/signin"
+                    className="nav-link link-body-emphasis px-2"
+                  >
+                    Login
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="/signup"
+                    className="nav-link link-body-emphasis px-2"
+                  >
+                    Sign up
+                  </a>
+                </li>
+              </>
+            ) : (
+              <li className="nav-item">
+                <button
+                  onClick={handleLogout}
+                  className="nav-link link-body-emphasis px-2"
+                  style={{
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  Logout
+                </button>
+              </li>
+            )}
           </ul>
         </div>
       </nav>

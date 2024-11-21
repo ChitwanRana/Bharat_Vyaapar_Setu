@@ -1,6 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-const SignIn = () => {
+const SignIn = ({ accountType }) => {
+  const navigate = useNavigate(); // Initialize navigate
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  // Handle form field change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+        credentials: "include", // Include session cookie
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        toast.success(data.message); // Show success toast
+        navigate("/"); // Change to the desired route
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message); // Show error toast
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      toast.error("An error occurred. Please try again later.");
+    }
+  };
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
       <section className="py-3 py-md-5 py-xl-8">
@@ -19,7 +63,7 @@ const SignIn = () => {
             <div className="col-12 col-lg-10 col-xl-8">
               <div className="row gy-5 justify-content-center">
                 <div className="col-12 col-lg-5">
-                  <form action="#!">
+                  <form onSubmit={handleSubmit}>
                     <div className="row gy-3 overflow-hidden">
                       <div className="col-12">
                         <div className="form-floating mb-3">
@@ -29,6 +73,8 @@ const SignIn = () => {
                             name="email"
                             id="email"
                             placeholder="name@example.com"
+                            value={formData.email}
+                            onChange={handleChange}
                             required
                           />
                           <label htmlFor="email" className="form-label">
@@ -44,6 +90,8 @@ const SignIn = () => {
                             name="password"
                             id="password"
                             placeholder="Password"
+                            value={formData.password}
+                            onChange={handleChange}
                             required
                           />
                           <label htmlFor="password" className="form-label">

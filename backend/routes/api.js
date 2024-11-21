@@ -18,10 +18,11 @@ router.get("/session", async (req, res) => {
     const userId = req.session.userId || req.session.passport?.user;
     if (userId) {
       try {
-        const user = await User.findById(userId);
+        const user = await User.findById(userId); // Find user by userId
         if (user) {
           return res.status(200).json({
             isLoggedIn: true,
+            accountType: user.accountType, // Include accountType in the response
           });
         } else {
           return res.status(404).json({
