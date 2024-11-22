@@ -1,4 +1,5 @@
 import React from "react";
+import CarouselComponent from "../Carasol";
 
 
 
@@ -6,6 +7,7 @@ import React from "react";
 const Home = () => {
   return (
     <>
+    <CarouselComponent />
     </>
   );
 };

@@ -11,7 +11,7 @@ import SignIn from "./components/SignIn";
 import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
 import Navbar from "./components/Navbar";
-import CarouselComponent from "./components/Carasol";
+import NotiFlow from "./components/NotiFlow";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
@@ -63,17 +63,18 @@ function App() {
         isLoggedIn={isLoggedIn}
         handleLogout={handleLogout}
       />
+      <NotiFlow />
       <Routes>
         {/* Home Route */}
         <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn accountType={accountType} />} />
+        <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
 
         {/* Seller Route */}
         <Route path="/seller" element={<Seller />} />
         <Route path="/buyer" element={<Buyer />} />
       </Routes>
-      <CarouselComponent />
+
       <Footer />
     </>
   );

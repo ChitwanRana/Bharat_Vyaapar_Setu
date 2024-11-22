@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-const SignIn = ({ accountType }) => {
+const SignIn = () => {
   const navigate = useNavigate(); // Initialize navigate
   const [formData, setFormData] = useState({
     email: "",
@@ -35,7 +35,7 @@ const SignIn = ({ accountType }) => {
       if (response.ok) {
         const data = await response.json();
         toast.success(data.message); // Show success toast
-        navigate("/"); // Change to the desired route
+        navigate(`/`); // Change to the desired route
       } else {
         const errorData = await response.json();
         toast.error(errorData.message); // Show error toast
