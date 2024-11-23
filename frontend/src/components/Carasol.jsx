@@ -1,11 +1,16 @@
 import React from "react";
 
 const CarouselComponent = () => {
-  const imageSrc = "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"; // Image URL
+  const imageSrc =
+    "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"; // Image URL
   const altText = "Carousel Slide"; // Alt text for accessibility
 
   return (
-    <div id="myCarousel" className="carousel slide mb-6" data-bs-ride="carousel">
+    <div
+      id="myCarousel"
+      className="carousel slide mb-6"
+      data-bs-ride="carousel"
+    >
       <div className="carousel-indicators">
         <button
           type="button"
@@ -15,24 +20,73 @@ const CarouselComponent = () => {
           aria-current="true"
           aria-label="Slide 1"
         ></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide-to="1"
+          aria-label="Slide 2"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide-to="2"
+          aria-label="Slide 3"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide-to="3"
+          aria-label="Slide 4"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#myCarousel"
+          data-bs-slide-to="4"
+          aria-label="Slide 5"
+        ></button>
       </div>
       <div className="carousel-inner">
         {/* Slide 1 */}
         <div className="carousel-item active">
-          <img src={imageSrc} className="d-block w-100" alt={altText} style={{ height: "500px", objectFit: "cover" }} />
+          <img
+            src="/Group 175125.png"
+            className="d-block w-100"
+            alt="Slide Image"
+            style={{ height: "400px", objectFit: "cover" }}
+          />
           <div className="container">
-            <div className="carousel-caption text-start">
-              <h1>Example headline.</h1>
-              <p className="opacity-75">
-                Some representative placeholder content for the first slide of the carousel.
+            <div
+              className="carousel-caption text-start"
+              style={{
+                position: "absolute",
+                top: "40%",
+                left: "0",
+                marginLeft: "130px",
+                transform: "translateY(-50%)",
+                textAlign: "left",
+                maxWidth: "800px",
+              }}
+            >
+              <h1 style={{ color: "#130f26" }}>Compare Rates.</h1>
+              <h1 style={{ color: "#130f26" }}>Negotiate Smarter.</h1>
+              <p style={{ color: "#130f26" }} className="opacity-75">
+                Instantly fetch and compare shipping rates across Fedex, UPS,
+                DHL and more. Let our AI-Powered chatbot negotiate the best
+                deals for your shipments.
               </p>
               <p>
-                <a className="btn btn-lg btn-primary" href="#">
-                  Sign up today
+                <a
+                  className="btn btn-lg text-white navbackground"
+                  href="#"
+                  style={{
+                    borderRadius: "50px", // Applies uniform radius for both sides
+                    padding: "10px 30px", // Adjust padding for size
+                    backgroundColor: "#007bff", // Button background color
+                    color: "white", // Text color
+                    display: "inline-block", // Ensures proper button spacing
+                  }}
+                >
+                  Start Saving Now
                 </a>
               </p>
             </div>
@@ -41,14 +95,44 @@ const CarouselComponent = () => {
 
         {/* Slide 2 */}
         <div className="carousel-item">
-          <img src={imageSrc} className="d-block w-100" alt={altText} style={{ height: "500px", objectFit: "cover" }} />
+          <img
+            src="/Group 175127.png"
+            className="d-block w-100"
+            alt={altText}
+            style={{ height: "400px", objectFit: "cover" }}
+          />
           <div className="container">
-            <div className="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Some representative placeholder content for the second slide of the carousel.</p>
+            <div
+              className="carousel-caption text-start"
+              style={{
+                position: "absolute",
+                top: "40%",
+                left: "0",
+                marginLeft: "130px",
+                transform: "translateY(-50%)",
+                textAlign: "left",
+                maxWidth: "800px",
+              }}
+            >
+              <h1 style={{ color: "#130f26" }}>Simplify Compliance.</h1>
+              <h1 style={{ color: "#130f26" }}>Sign Digitally.</h1>
+              <p style={{ color: "#130f26" }} className="opacity-75">
+                Verify export documents with Al, track versions, and securely
+                sign with integrated digital signature tools like DocuSign.
+              </p>
               <p>
-                <a className="btn btn-lg btn-primary" href="#">
-                  Learn more
+                <a
+                  className="btn btn-lg text-white navbackground"
+                  href="#"
+                  style={{
+                    borderRadius: "50px", // Applies uniform radius for both sides
+                    padding: "10px 30px", // Adjust padding for size
+                    backgroundColor: "#007bff", // Button background color
+                    color: "white", // Text color
+                    display: "inline-block", // Ensures proper button spacing
+                  }}
+                >
+                  Streamline Your Documents
                 </a>
               </p>
             </div>
@@ -57,14 +141,44 @@ const CarouselComponent = () => {
 
         {/* Slide 3 */}
         <div className="carousel-item">
-          <img src={imageSrc} className="d-block w-100" alt={altText} style={{ height: "500px", objectFit: "cover" }} />
+          <img
+            src="/Group 175129.png"
+            className="d-block w-100"
+            alt={altText}
+            style={{ height: "400px", objectFit: "cover" }}
+          />
           <div className="container">
-            <div className="carousel-caption">
-              <h1>Example headline 3.</h1>
-              <p>Some representative placeholder content for the third slide of the carousel.</p>
+            <div
+              className="carousel-caption text-start"
+              style={{
+                position: "absolute",
+                top: "40%",
+                left: "0",
+                marginLeft: "130px",
+                transform: "translateY(-50%)",
+                textAlign: "left",
+                maxWidth: "800px",
+              }}
+            >
+              <h1 style={{ color: "#130f26" }}>Make Data-Driven</h1>
+              <h1 style={{ color: "#130f26" }}>Shipping Choices</h1>
+              <p style={{ color: "#130f26" }} className="opacity-75">
+                Analyze shipping trends, costs, and performance with predictive
+                analytics and dynamic KPI dashboards.
+              </p>
               <p>
-                <a className="btn btn-lg btn-primary" href="#">
-                  Join us
+                <a
+                  className="btn btn-lg text-white navbackground"
+                  href="#"
+                  style={{
+                    borderRadius: "50px", // Applies uniform radius for both sides
+                    padding: "10px 30px", // Adjust padding for size
+                    backgroundColor: "#007bff", // Button background color
+                    color: "white", // Text color
+                    display: "inline-block", // Ensures proper button spacing
+                  }}
+                >
+                  Discover Insights
                 </a>
               </p>
             </div>
@@ -73,14 +187,45 @@ const CarouselComponent = () => {
 
         {/* Slide 4 */}
         <div className="carousel-item">
-          <img src={imageSrc} className="d-block w-100" alt={altText} style={{ height: "500px", objectFit: "cover" }} />
+          <img
+            src="/Group 175126.png"
+            className="d-block w-100"
+            alt={altText}
+            style={{ height: "400px", objectFit: "cover" }}
+          />
           <div className="container">
-            <div className="carousel-caption">
-              <h1>Example headline 4.</h1>
-              <p>Some representative placeholder content for the fourth slide of the carousel.</p>
+            <div
+              className="carousel-caption text-start"
+              style={{
+                position: "absolute",
+                top: "40%",
+                left: "0",
+                marginLeft: "130px",
+                transform: "translateY(-50%)",
+                textAlign: "left",
+                maxWidth: "800px",
+              }}
+            >
+              <h1 style={{ color: "#130f26" }}>Track Every Shipment</h1>
+              <h1 style={{ color: "#130f26" }}>in Real Time</h1>
+              <p style={{ color: "#130f26" }} className="opacity-75">
+                Visualize shipment statuses on an interactive map and stay
+                informed with automated alerts on delays, customs, and
+                deliveries.
+              </p>
               <p>
-                <a className="btn btn-lg btn-primary" href="#">
-                  Get started
+                <a
+                  className="btn btn-lg text-white navbackground"
+                  href="#"
+                  style={{
+                    borderRadius: "50px", // Applies uniform radius for both sides
+                    padding: "10px 30px", // Adjust padding for size
+                    backgroundColor: "#007bff", // Button background color
+                    color: "white", // Text color
+                    display: "inline-block", // Ensures proper button spacing
+                  }}
+                >
+                  Track Your Shipments
                 </a>
               </p>
             </div>
@@ -89,14 +234,44 @@ const CarouselComponent = () => {
 
         {/* Slide 5 */}
         <div className="carousel-item">
-          <img src={imageSrc} className="d-block w-100" alt={altText} style={{ height: "500px", objectFit: "cover" }} />
+          <img
+            src="/Group 175128.png"
+            className="d-block w-100"
+            alt={altText}
+            style={{ height: "400px", objectFit: "cover" }}
+          />
           <div className="container">
-            <div className="carousel-caption text-end">
-              <h1>Final headline example.</h1>
-              <p>Some representative placeholder content for the fifth slide of the carousel.</p>
+            <div
+              className="carousel-caption text-start"
+              style={{
+                position: "absolute",
+                top: "40%",
+                left: "0",
+                marginLeft: "130px",
+                transform: "translateY(-50%)",
+                textAlign: "left",
+                maxWidth: "800px",
+              }}
+            >
+              <h1 style={{ color: "white" }}>Connect Your Team</h1>
+              <h1 style={{ color: "white" }}>and Partners</h1>
+              <p style={{ color: "white" }}>
+                Schedule shipments, coordinate with carriers, and communicate in
+                real time with Slack and shared calendar integrations.
+              </p>
               <p>
-                <a className="btn btn-lg btn-primary" href="#">
-                  Browse our services
+                <a
+                  className="btn btn-lg text-white navbackground"
+                  href="#"
+                  style={{
+                    borderRadius: "50px", // Applies uniform radius for both sides
+                    padding: "10px 30px", // Adjust padding for size
+                    backgroundColor: "White", // Button background color
+                    color: "black", // Text color
+                    display: "inline-block", // Ensures proper button spacing
+                  }}
+                >
+                  Enhance Collaboration
                 </a>
               </p>
             </div>

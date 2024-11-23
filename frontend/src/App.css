@@ -1,10 +1,25 @@
 .black-background {
-    background-color: black !important;
-  }
+  background-color: black !important;
+}
 .navbackground {
-    background-color: #130f26 !important;
+  background-color: #130f26 !important;
 }
 .flowbackground {
-    background-color: #d9d9d9;
+  background-color: #d9d9d9;
 }
-  
+
+.text-white {
+  color: white !important; /* Ensure all text is white */
+}
+
+a.text-white:hover {
+  color: #ffc107; /* Optional: Gold color on hover for links */
+}
+
+footer svg {
+  fill: white; /* Ensures SVG icons are white */
+}
+
+footer svg:hover {
+  fill: #ffc107; /* Optional: Gold color for SVG on hover */
+}

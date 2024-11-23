@@ -13,6 +13,8 @@ import SignUp from "./components/SignUp";
 import Navbar from "./components/Navbar";
 import NotiFlow from "./components/NotiFlow";
 import Chatbot from "./components/ChatBot"; // Import your chatbot component
+import MapComponent from "./components/MapComponent";
+import SocialDetails from "./components/SocialDetails";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
@@ -55,7 +57,6 @@ function App() {
     toast.success("Logged out successfully");
     navigate("/"); // Redirect to login page after logout
   };
-
   return (
     <>
       <ToastContainer />
@@ -65,13 +66,18 @@ function App() {
         handleLogout={handleLogout}
       />
       <NotiFlow />
-      
+
       <Routes>
         {/* Home Route */}
         <Route path="/" element={<Home />} />
         <Route
           path="/signin"
-          element={<SignIn setIsLoggedIn={setIsLoggedIn} setAccountType={setAccountType} />}
+          element={
+            <SignIn
+              setIsLoggedIn={setIsLoggedIn}
+              setAccountType={setAccountType}
+            />
+          }
         />
         <Route path="/signup" element={<SignUp />} />
 
@@ -79,8 +85,12 @@ function App() {
         <Route path="/seller" element={<Seller />} />
         <Route path="/buyer" element={<Buyer />} />
       </Routes>
+      <h1>Some main content here</h1>
+      <h1>Bellow pls</h1>
 
       <Footer />
+      
+      <SocialDetails />
       {/* Add the Chatbot component */}
       <Chatbot />
     </>
