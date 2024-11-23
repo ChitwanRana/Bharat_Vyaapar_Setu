@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Route, Routes } from "react-router-dom"; // Don't use BrowserRouter here
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import "../src/App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css"; // Import the CSS
 import Seller from "./components/Seller/Seller";
@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import SignUp from "./components/SignUp";
 import Navbar from "./components/Navbar";
 import NotiFlow from "./components/NotiFlow";
+import Chatbot from "./components/ChatBot"; // Import your chatbot component
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
@@ -64,10 +65,14 @@ function App() {
         handleLogout={handleLogout}
       />
       <NotiFlow />
+      
       <Routes>
         {/* Home Route */}
         <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route
+          path="/signin"
+          element={<SignIn setIsLoggedIn={setIsLoggedIn} setAccountType={setAccountType} />}
+        />
         <Route path="/signup" element={<SignUp />} />
 
         {/* Seller Route */}
@@ -76,6 +81,8 @@ function App() {
       </Routes>
 
       <Footer />
+      {/* Add the Chatbot component */}
+      <Chatbot />
     </>
   );
 }

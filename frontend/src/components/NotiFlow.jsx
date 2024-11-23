@@ -1,9 +1,8 @@
 import React from "react";
 
 const NotiFlow = () => {
-  const containerStyle = {
-    backgroundColor: "#6c757d", // Gray background (Bootstrap secondary color)
-    color: "white",
+  const containerStyle = { // Gray background (Bootstrap secondary color)
+    color: "black",
     padding: "5px",
     overflow: "hidden",
     width: "100%",
@@ -40,7 +39,7 @@ const NotiFlow = () => {
   }, [keyframes]);
 
   return (
-    <div style={containerStyle}>
+    <div className="flowbackground" style={containerStyle}>
       <div style={textStyle}>
         🚀 Welcome to our service! Need Help? Contact us anytime.
       </div>

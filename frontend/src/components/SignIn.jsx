@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-const SignIn = () => {
+const SignIn = ({ setIsLoggedIn, setAccountType }) => {
   const navigate = useNavigate(); // Initialize navigate
   const [formData, setFormData] = useState({
     email: "",
@@ -34,7 +34,9 @@ const SignIn = () => {
 
       if (response.ok) {
         const data = await response.json();
-        toast.success(data.message); // Show success toast
+        toast.success(data.message);
+        setIsLoggedIn(true);
+        setAccountType(data.accountType); 
         navigate(`/`); // Change to the desired route
       } else {
         const errorData = await response.json();
@@ -46,7 +48,7 @@ const SignIn = () => {
     }
   };
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
+    
       <section className="py-3 py-md-5 py-xl-8">
         <div className="container">
           <div className="row">
@@ -194,7 +196,6 @@ const SignIn = () => {
           </div>
         </div>
       </section>
-    </div>
   );
 };
 
