@@ -1,6 +1,7 @@
 // backend/routes/api.js
 const express = require("express");
 const router = express.Router();
+const sendAlert = require("../utils/twilio"); // Import the Twilio utility
 const User = require("../models/user"); // Make sure to import your User model
 
 // Example API route
@@ -46,5 +47,40 @@ router.get("/session", async (req, res) => {
   });
 });
 
+router.get("/send-alert-trial", async (req, res) => {
+  const message = "Hello Divyanshu";
+  const phoneNumber = "+919879618851"; // Ensure it has a leading '+'
+
+  if (!message || !phoneNumber) {
+    return res
+      .status(400)
+      .json({ success: false, error: "Message and phoneNumber are required." });
+  }
+
+  try {
+    await sendAlert(message, phoneNumber); // Call the Twilio function
+    res
+      .status(200)
+      .json({ success: true, message: "Trial alert sent successfully!" });
+  } catch (err) {
+    console.error("Error sending trial alert:", err);
+    res
+      .status(500)
+      .json({ success: false, error: "Failed to send trial alert." });
+  }
+});
+
+router.post("/send-alert", async (req, res) => {
+  const { message, phoneNumber } = req.body;
+
+  try {
+    await sendAlert(message, phoneNumber); // Call the Twilio function
+    res
+      .status(200)
+      .json({ success: true, message: "Alert sent successfully!" });
+  } catch (err) {
+    res.status(500).json({ success: false, error: "Failed to send alert." });
+  }
+});
 
 module.exports = router;

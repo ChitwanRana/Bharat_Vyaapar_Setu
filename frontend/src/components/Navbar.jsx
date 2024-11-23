@@ -49,6 +49,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                 width="30px"
                 height="30px"
                 version="1.1"
+                
                 viewBox="144 144 512 512"
                 xmlns="http://www.w3.org/2000/svg"
                 className="ms-2"

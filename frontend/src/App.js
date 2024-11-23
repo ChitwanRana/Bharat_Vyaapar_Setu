@@ -21,27 +21,27 @@ function App() {
   const [accountType, setAccountType] = useState("home"); // Track account type
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // Check if the user is logged in
-    const checkLoginStatus = async () => {
-      const response = await fetch("http://localhost:5000/api/session", {
-        method: "GET",
-        credentials: "include", // To include session cookie
-      });
+  // Check login status function
+  const checkLoginStatus = async () => {
+    const response = await fetch("http://localhost:5000/api/session", {
+      method: "GET",
+      credentials: "include", // To include session cookie
+    });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        setIsLoggedIn(data.isLoggedIn); // Assuming the response has `isLoggedIn`
-        if (data.isLoggedIn) {
-          setAccountType(data.accountType); // Assuming the response includes accountType
-        }
-      } else {
-        setIsLoggedIn(false); // Reset accountType if not logged in
+    if (response.ok) {
+      const data = await response.json();
+      console.log(data);
+      setIsLoggedIn(data.isLoggedIn); // Assuming the response has `isLoggedIn`
+      if (data.isLoggedIn) {
+        setAccountType(data.accountType); // Assuming the response includes accountType
       }
-    };
+    } else {
+      setIsLoggedIn(false); // Reset accountType if not logged in
+    }
+  };
 
-    checkLoginStatus();
+  useEffect(() => {
+    checkLoginStatus(); // Check session status on component mount
   }, []);
 
   const handleLogout = async () => {
@@ -57,6 +57,7 @@ function App() {
     toast.success("Logged out successfully");
     navigate("/"); // Redirect to login page after logout
   };
+
   return (
     <>
       <ToastContainer />
@@ -75,7 +76,7 @@ function App() {
           element={
             <SignIn
               setIsLoggedIn={setIsLoggedIn}
-              setAccountType={setAccountType}
+              checkLoginStatus={checkLoginStatus} // Pass the function here
             />
           }
         />
@@ -89,7 +90,6 @@ function App() {
       <h1>Bellow pls</h1>
 
       <Footer />
-      
       <SocialDetails />
       {/* Add the Chatbot component */}
       <Chatbot />
