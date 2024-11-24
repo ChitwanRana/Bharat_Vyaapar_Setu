@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import TopBar from "./TopBar";
 import "./ShoppingCart.css";
 
@@ -48,7 +48,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
           {accountType === "buyer" && (
             <div className="d-flex align-items-center">
               <a
-                href="#"
+                href="/"
                 className="nav-link text-white fs-5 px-2"
                 aria-current="page"
               >
@@ -224,7 +224,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
 
               {/* Categories text */}
               <a
-                href="#"
+                href="/"
                 className="nav-link text-white px-2 active"
                 aria-current="page"
                 data-bs-toggle="dropdown" // Bootstrap's dropdown toggle functionality
@@ -236,7 +236,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
               <ul className="dropdown-menu navbackground">
                 <li>
                   <a
-                    href="#"
+                    href="/"
                     className="dropdown-item"
                     style={{
                       color: "#ffffff",
@@ -250,7 +250,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/"
                     className="dropdown-item"
                     style={{
                       color: "#ffffff",
@@ -264,7 +264,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/"
                     className="dropdown-item"
                     style={{
                       color: "#ffffff",
@@ -284,7 +284,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
               <>
                 <li className="nav-item">
                   <a
-                    href="#"
+                    href="/"
                     className="nav-link text-white px-2 active"
                     aria-current="page"
                   >
@@ -292,12 +292,12 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link text-white px-2">
+                  <a href="/" className="nav-link text-white px-2">
                     FAQs
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link text-white px-2">
+                  <a href="/" className="nav-link text-white px-2">
                     About
                   </a>
                 </li>
@@ -315,7 +315,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                 </li>
                 <li className="nav-item">
                   <a
-                    href="#"
+                    href="/"
                     className="nav-link text-white px-2 active"
                     aria-current="page"
                   >
@@ -323,17 +323,17 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link text-white px-2">
+                  <a href="/" className="nav-link text-white px-2">
                     Business Oppertunities
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link text-white px-2">
+                  <a href="/" className="nav-link text-white px-2">
                     FAQs
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link text-white px-2">
+                  <a href="/" className="nav-link text-white px-2">
                     About
                   </a>
                 </li>
@@ -351,7 +351,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                 </li>
                 <li className="nav-item">
                   <a
-                    href="#"
+                    href="/"
                     className="nav-link text-white px-2 active"
                     aria-current="page"
                   >
@@ -359,12 +359,12 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link text-white px-2">
+                  <a href="/" className="nav-link text-white px-2">
                     Communication
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link text-white px-2">
+                  <a href="/" className="nav-link text-white px-2">
                     Real Time Insight
                   </a>
                 </li>
@@ -380,7 +380,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
             </li>
             <li className="nav-item">
               <a
-                href="#"
+                href="/"
                 className="nav-link text-white px-2 d-flex align-items-center"
                 aria-haspopup="true"
                 aria-expanded="false"
