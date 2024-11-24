@@ -5,7 +5,7 @@ export const Hashtag = () => {
     <div className="container d-flex flex-wrap">
       <img 
         src={`${process.env.PUBLIC_URL}/Group 175146.png`} 
-        alt="Description of the image" 
+        alt="Promotional Banner" 
         className="img-fluid"
       />
     </div>

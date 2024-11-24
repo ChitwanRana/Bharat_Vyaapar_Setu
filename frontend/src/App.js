@@ -13,7 +13,6 @@ import SignUp from "./components/SignUp";
 import Navbar from "./components/Navbar";
 import NotiFlow from "./components/NotiFlow";
 import Chatbot from "./components/ChatBot"; // Import your chatbot component
-import MapComponent from "./components/MapComponent";
 import SocialDetails from "./components/SocialDetails";
 
 function App() {

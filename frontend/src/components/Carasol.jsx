@@ -1,9 +1,6 @@
 import React from "react";
 
 const CarouselComponent = () => {
-  const imageSrc =
-    "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"; // Image URL
-  const altText = "Carousel Slide"; // Alt text for accessibility
 
   return (
     <div
@@ -51,7 +48,7 @@ const CarouselComponent = () => {
           <img
             src="/Group 175125.png"
             className="d-block w-100"
-            alt="Slide Image"
+            alt="Promotional banner for the event"
             style={{ height: "400px", objectFit: "cover" }}
           />
           <div className="container">
@@ -77,7 +74,7 @@ const CarouselComponent = () => {
               <p>
                 <a
                   className="btn btn-lg text-white navbackground"
-                  href="#"
+                  href="/"
                   style={{
                     borderRadius: "50px", // Applies uniform radius for both sides
                     padding: "10px 30px", // Adjust padding for size
@@ -123,7 +120,7 @@ const CarouselComponent = () => {
               <p>
                 <a
                   className="btn btn-lg text-white navbackground"
-                  href="#"
+                  href="/"
                   style={{
                     borderRadius: "50px", // Applies uniform radius for both sides
                     padding: "10px 30px", // Adjust padding for size
@@ -169,7 +166,7 @@ const CarouselComponent = () => {
               <p>
                 <a
                   className="btn btn-lg text-white navbackground"
-                  href="#"
+                  href="/"
                   style={{
                     borderRadius: "50px", // Applies uniform radius for both sides
                     padding: "10px 30px", // Adjust padding for size
@@ -216,7 +213,7 @@ const CarouselComponent = () => {
               <p>
                 <a
                   className="btn btn-lg text-white navbackground"
-                  href="#"
+                  href="/"
                   style={{
                     borderRadius: "50px", // Applies uniform radius for both sides
                     padding: "10px 30px", // Adjust padding for size
@@ -262,7 +259,7 @@ const CarouselComponent = () => {
               <p>
                 <a
                   className="btn btn-lg text-white navbackground"
-                  href="#"
+                  href="/"
                   style={{
                     borderRadius: "50px", // Applies uniform radius for both sides
                     padding: "10px 30px", // Adjust padding for size

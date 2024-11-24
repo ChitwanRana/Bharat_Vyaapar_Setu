@@ -27,7 +27,7 @@ const Footer = () => {
           <li className="ms-3">
             <a
               className="text-white"
-              href="#"
+              href="/"
               aria-label="Twitter"
               title="Follow us on Twitter"
             >
@@ -39,7 +39,7 @@ const Footer = () => {
           <li className="ms-3">
             <a
               className="text-white"
-              href="#"
+              href="/"
               aria-label="Instagram"
               title="Follow us on Instagram"
             >
@@ -51,7 +51,7 @@ const Footer = () => {
           <li className="ms-3">
             <a
               className="text-white"
-              href="#"
+              href="/"
               aria-label="Facebook"
               title="Like us on Facebook"
             >
