@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -19,7 +22,7 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form Data:', formData);
+    console.log("Form Data:", formData);
 
     try {
       const response = await fetch("http://localhost:5000/auth/signup", {
@@ -33,7 +36,7 @@ const SignUp = () => {
 
       if (response.ok) {
         const data = await response.json();
-        alert(data.message); // Show success message
+        toast.success(data.message); // Show success toast
 
         // Reset the form after navigation
         setFormData({
@@ -43,6 +46,7 @@ const SignUp = () => {
           password: "",
           accountType: "buyer", // Default account type
         });
+        navigate("/signin");
       } else {
         const errorData = await response.json();
         alert(errorData.message); // Show error message
@@ -63,13 +67,12 @@ const SignUp = () => {
                 <div className="row">
                   <div className="col-12">
                     <div className="mb-5">
-                      <div className="text-center mb-4">
+                      <div className=" navbackground rounded mt-2 text-center mb-4">
                         <a href="#!">
                           <img
-                            src="./assets/img/bsb-logo.svg"
-                            alt="SambhavLogo"
-                            width="175"
-                            height="57"
+                            src={`${process.env.PUBLIC_URL}/logo.svg`}
+                            alt="Logo"
+                            style={{ width: "115px", height: "100%" }}
                           />
                         </a>
                       </div>

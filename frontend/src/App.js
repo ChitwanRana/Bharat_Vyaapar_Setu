@@ -55,7 +55,7 @@ function App() {
     setIsLoggedIn(false);
     setAccountType("home"); // Clear account type after logout
     toast.success("Logged out successfully");
-    navigate("/"); // Redirect to login page after logout
+    navigate("/signin"); // Redirect to login page after logout
   };
 
   return (
@@ -86,8 +86,6 @@ function App() {
         <Route path="/seller" element={<Seller />} />
         <Route path="/buyer" element={<Buyer />} />
       </Routes>
-      <h1>Some main content here</h1>
-      <h1>Bellow pls</h1>
 
       <Footer />
       <SocialDetails />

@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate
 const SignIn = ({ setIsLoggedIn, checkLoginStatus }) => {
   const navigate = useNavigate(); // Initialize navigate
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    email: "prototype@gmail.com",
+    password: "123",
   });
 
   // Handle form field change

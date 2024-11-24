@@ -13,10 +13,15 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
     <>
       <TopBar />
       <header className="navbackground py-3 border-bottom">
-        <div className="container d-flex flex-wrap justify-content-center">
+        <div
+          className="container d-flex flex-wrap justify-content-between align-items-center py-3"
+          style={{ gap: "10px" }}
+        >
+          {/* Logo */}
           <a
             href="/"
-            className="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-white text-decoration-none"
+            className="d-flex align-items-center mb-3 mb-lg-0 text-white text-decoration-none"
+            style={{ marginRight: "20px" }} // Space after the logo
           >
             <img
               src={`${process.env.PUBLIC_URL}/logo.svg`}
@@ -24,13 +29,19 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
               style={{ width: "115px", height: "100%" }}
             />
           </a>
-          <div className="d-flex align-items-center">
-            <form className="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+
+          {/* Search Bar */}
+          <div
+            className="d-flex justify-content-center flex-grow-1"
+            style={{ marginLeft: "50px" }}
+          >
+            <form className="col-12 col-lg-8 mb-3 mb-lg-0" role="search">
               <input
                 type="search"
                 className="form-control"
                 placeholder="Search..."
                 aria-label="Search"
+                style={{ height: "45px", fontSize: "16px" }}
               />
             </form>
           </div>
@@ -45,11 +56,10 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
               </a>
               <svg
                 onClick={toggleCart}
-                fill="#000000"
+                fill="#ffffff" // Changed to white
                 width="30px"
                 height="30px"
                 version="1.1"
-                
                 viewBox="144 144 512 512"
                 xmlns="http://www.w3.org/2000/svg"
                 className="ms-2"
@@ -161,6 +171,79 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
       <nav className="navbackground border-bottom">
         <div className="container d-flex flex-wrap">
           <ul className="nav me-auto">
+            <li className="nav-item d-flex align-items-center position-relative">
+              {/* Hamburger icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="15"
+                fill="#ffffff"
+                height="15"
+                viewBox="0 0 100 80"
+                className="me-2"
+                style={{ cursor: "pointer" }}
+              >
+                <rect width="100" height="10" rx="8" />
+                <rect y="30" width="100" height="10" rx="8" />
+                <rect y="60" width="100" height="10" rx="8" />
+              </svg>
+
+              {/* Categories text */}
+              <a
+                href="#"
+                className="nav-link text-white px-2 active"
+                aria-current="page"
+                data-bs-toggle="dropdown" // Bootstrap's dropdown toggle functionality
+              >
+                Categories
+              </a>
+
+              {/* Dropdown Menu */}
+              <ul className="dropdown-menu navbackground">
+                <li>
+                  <a
+                    href="#"
+                    className="dropdown-item"
+                    style={{
+                      color: "#ffffff",
+                      textDecoration: "none",
+                    }}
+                    onMouseEnter={(e) => (e.target.style.color = "black")}
+                    onMouseLeave={(e) => (e.target.style.color = "white")}
+                  >
+                    Option 1
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="dropdown-item"
+                    style={{
+                      color: "#ffffff",
+                      textDecoration: "none",
+                    }}
+                    onMouseEnter={(e) => (e.target.style.color = "black")}
+                    onMouseLeave={(e) => (e.target.style.color = "white")}
+                  >
+                    Option 2
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="dropdown-item"
+                    style={{
+                      color: "#ffffff",
+                      textDecoration: "none",
+                    }}
+                    onMouseEnter={(e) => (e.target.style.color = "black")}
+                    onMouseLeave={(e) => (e.target.style.color = "white")}
+                  >
+                    Option 3
+                  </a>
+                </li>
+              </ul>
+            </li>
+
             {/* Conditional rendering based on the 'page' prop */}
             {accountType === "home" ? (
               <>
@@ -237,22 +320,17 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                     className="nav-link text-white px-2 active"
                     aria-current="page"
                   >
-                    Open Deals
+                    Document Compliance
                   </a>
                 </li>
                 <li className="nav-item">
                   <a href="#" className="nav-link text-white px-2">
-                    Customer
+                    Communication
                   </a>
                 </li>
                 <li className="nav-item">
                   <a href="#" className="nav-link text-white px-2">
-                    Service
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="#" className="nav-link text-white px-2">
-                    Open Bidding
+                    Real Time Insight
                   </a>
                 </li>
               </>
