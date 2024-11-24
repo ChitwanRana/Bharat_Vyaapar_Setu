@@ -28,19 +28,19 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  console.log("Serializing user:", user);
+  done(null, user.id); // Ensure user.id exists and is correct
 });
+
 
 passport.deserializeUser(async (userId, done) => {
   try {
-    // Fetch the user by ID using async/await
+    console.log("Deserializing user with ID:", userId);
     const user = await User.findById(userId);
-
     if (!user) {
+      console.error("User not found for ID:", userId);
       return done(new Error("User not found"), null);
     }
-
-    // Pass the user to the done callback
     return done(null, user);
   } catch (err) {
     console.error("Error deserializing user:", err);
