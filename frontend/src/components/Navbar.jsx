@@ -67,6 +67,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
               >
                 <path d="m620.17 328.12c-5.2188-6.4648-13.09-10.215-21.402-10.199h-330.34l-24.805-97.668c-1.5078-5.9414-4.9492-11.211-9.7891-14.973-4.8359-3.7617-10.789-5.8047-16.918-5.8008h-31.438c-6.5195 0-11.805 5.2852-11.805 11.809 0 6.5195 5.2852 11.809 11.805 11.809h31.438c1.8008 0 3.3711 1.2188 3.8164 2.9688l27.008 106.34c0.039063 0.15625 0.078125 0.32422 0.12109 0.48047l38.453 151.37h0.003906c2.5781 10.184 8.4805 19.215 16.773 25.664 8.2891 6.4492 18.496 9.9453 29 9.9414h219.7c10.82-0.039063 21.301-3.7773 29.707-10.59 8.4062-6.8164 14.23-16.297 16.504-26.875l27.73-131.23c1.7344-8.1289-0.30859-16.605-5.5586-23.051zm-45.281 149.39 0.003906 0.003906c-1.1367 5.2891-4.0508 10.031-8.2539 13.438s-9.4414 5.2734-14.852 5.293h-219.7c-5.25 0.003906-10.355-1.7461-14.5-4.9727-4.1445-3.2227-7.0977-7.7383-8.3906-12.828l-34.773-136.91h324.34c1.1875 0 2.3125 0.53516 3.0586 1.457 0.74609 0.91797 1.0391 2.1289 0.79297 3.2891zm-50.082 60.016 0.003906 0.003906c-11.25 0-21.645 6-27.27 15.746-5.625 9.7422-5.625 21.742 0 31.484 5.625 9.7461 16.02 15.746 27.27 15.746 11.211-0.054688 21.551-6.0703 27.141-15.789 5.5898-9.7188 5.5898-21.68 0-31.398-5.5898-9.7188-15.93-15.73-27.141-15.789zm0 39.359 0.003906 0.003906c-4.3477 0-7.8711-3.5234-7.8711-7.8711 0-4.3477 3.5234-7.8711 7.8711-7.8711s7.875 3.5234 7.875 7.8711c0 4.3477-3.5273 7.8711-7.875 7.8711zm-174.97-39.359 0.003906 0.003906c-11.25 0-21.645 6-27.27 15.746-5.625 9.7422-5.625 21.742 0 31.484 5.625 9.7461 16.02 15.746 27.27 15.746 11.215-0.054688 21.551-6.0703 27.141-15.789 5.5898-9.7188 5.5898-21.68 0-31.398-5.5898-9.7188-15.926-15.73-27.141-15.789zm0 39.359 0.003906 0.003906c-4.3477 0-7.8711-3.5234-7.8711-7.8711 0-4.3477 3.5234-7.8711 7.8711-7.8711s7.875 3.5234 7.875 7.8711c0 4.3477-3.5273 7.8711-7.875 7.8711z" />
               </svg>
+
               {showCart && (
                 <div className="shopping-cart-modal">
                   <section className="h-100">
@@ -166,6 +167,39 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
               )}
             </div>
           )}
+          <ul className="nav">
+            {!isLoggedIn ? (
+              <>
+                <li className="nav-item">
+                  <a href="/signin" className="nav-link text-white px-2">
+                    Login
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="/signup" className="nav-link text-white px-2">
+                    Sign up
+                  </a>
+                </li>
+              </>
+            ) : (
+              <li className="nav-item">
+                <button
+                  onClick={handleLogout}
+                  className="nav-link px-2"
+                  style={{
+                    background: "#ffffff", // White background
+                    border: "1px solid #130f26", // Border with #130f26 color
+                    borderRadius: "8px", // Rounded corners
+                    color: "#130f26", // Text color
+                    cursor: "pointer",
+                    padding: "8px 15px", // Add padding for better button spacing
+                  }}
+                >
+                  Logout
+                </button>
+              </li>
+            )}
+          </ul>
         </div>
       </header>
       <nav className="navbackground border-bottom">
@@ -181,6 +215,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                 viewBox="0 0 100 80"
                 className="me-2"
                 style={{ cursor: "pointer" }}
+                data-bs-toggle="dropdown"
               >
                 <rect width="100" height="10" rx="8" />
                 <rect y="30" width="100" height="10" rx="8" />
@@ -336,35 +371,34 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
               </>
             ) : null}
           </ul>
-          <ul className="nav">
-            {!isLoggedIn ? (
-              <>
-                <li className="nav-item">
-                  <a href="/signin" className="nav-link text-white px-2">
-                    Login
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="/signup" className="nav-link text-white px-2">
-                    Sign up
-                  </a>
-                </li>
-              </>
-            ) : (
-              <li className="nav-item">
-                <button
-                  onClick={handleLogout}
-                  className="nav-link text-white px-2"
-                  style={{
-                    background: "none",
-                    border: "none",
-                    cursor: "pointer",
-                  }}
+          <ul className="nav d-flex align-items-center">
+            {/* "New" Link */}
+            <li className="nav-item me-3">
+              <a href="/signin" className="nav-link text-white px-2">
+                New
+              </a>
+            </li>
+            <li className="nav-item">
+              <a
+                href="#"
+                className="nav-link text-white px-2 d-flex align-items-center"
+                aria-haspopup="true"
+                aria-expanded="false"
+                onClick={(e) => e.preventDefault()} // Prevent page navigation on click
+              >
+                {/* Bell SVG Icon */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="white"
+                  className="me-2"
+                  viewBox="0 0 16 16"
                 >
-                  Logout
-                </button>
-              </li>
-            )}
+                  <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.018-14a4.986 4.986 0 0 0-4.466 2.723C3.21 4.407 3 5.254 3 5.6v3.5c0 .387-.144.735-.405 1.002l-.791.878a.5.5 0 0 0 .377.82H13.82a.5.5 0 0 0 .378-.82l-.79-.878A1.528 1.528 0 0 1 13 9.1V5.6c0-.346-.211-1.193-.552-1.878A4.986 4.986 0 0 0 8.018 2zM8 1a6 6 0 0 1 5.341 3.266c.394.777.659 1.727.659 2.334v3.5c0 .645.243 1.28.684 1.739l.004.003.791.879a1.5 1.5 0 0 1-1.13 2.48H2.347a1.5 1.5 0 0 1-1.13-2.48l.791-.879A2.528 2.528 0 0 0 3 9.1V5.6c0-.607.265-1.557.659-2.334A6 6 0 0 1 8 1z" />
+                </svg>
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
