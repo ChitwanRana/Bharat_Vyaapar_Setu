@@ -95,7 +95,7 @@ const CarouselComponent = () => {
           <img
             src="/Group 175127.png"
             className="d-block w-100"
-            alt={altText}
+            alt="Background Banner"
             style={{ height: "400px", objectFit: "cover" }}
           />
           <div className="container">
@@ -141,7 +141,7 @@ const CarouselComponent = () => {
           <img
             src="/Group 175129.png"
             className="d-block w-100"
-            alt={altText}
+            alt="Background Banner"
             style={{ height: "400px", objectFit: "cover" }}
           />
           <div className="container">
@@ -187,7 +187,7 @@ const CarouselComponent = () => {
           <img
             src="/Group 175126.png"
             className="d-block w-100"
-            alt={altText}
+            alt="Background Banner"
             style={{ height: "400px", objectFit: "cover" }}
           />
           <div className="container">
@@ -234,7 +234,7 @@ const CarouselComponent = () => {
           <img
             src="/Group 175128.png"
             className="d-block w-100"
-            alt={altText}
+            alt="Background Banner"
             style={{ height: "400px", objectFit: "cover" }}
           />
           <div className="container">
