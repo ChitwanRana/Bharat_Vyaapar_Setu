@@ -14,6 +14,7 @@ import Navbar from "./components/Navbar";
 import NotiFlow from "./components/NotiFlow";
 import Chatbot from "./components/ChatBot"; // Import your chatbot component
 import SocialDetails from "./components/SocialDetails";
+import { MapInsights } from "./components/MapInsights";
 import DocumentCompliance from "./components/DocCompliance/DocumentCompliance";
 
 function App() {
@@ -81,6 +82,7 @@ function App() {
           }
         />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/insights" element={<MapInsights />} />
 
         {/* Seller Route */}
         <Route path="/seller" element={<Seller />} />
