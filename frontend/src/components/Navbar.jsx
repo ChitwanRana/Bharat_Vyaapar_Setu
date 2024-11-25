@@ -11,8 +11,13 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
   };
   const handleSubmit = async () => {
     try {
+      const message = encodeURIComponent(
+        "Hello This is a confirmation that Twilio is working. Chitwan Lodu!"
+      );
+      const phoneNumber = encodeURIComponent("+917251957211");
+
       const response = await fetch(
-        "https://bharat-vyaapar-setu-e522.onrender.com/api/send-alert?message=Hello%20This%20is%20a%20confirmation%20that%20Twilio%20is%20working&phoneNumber=%2B919879618851",
+        `https://bharat-vyaapar-setu-e522.onrender.com/api/send-alert?message=${message}&phoneNumber=${phoneNumber}`,
         {
           method: "GET",
         }
