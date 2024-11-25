@@ -1,7 +1,6 @@
 import { useState } from "react";
 import TopBar from "./TopBar";
 import "./ShoppingCart.css";
-import { toast } from "react-toastify";
 
 const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
   const [showCart, setShowCart] = useState(false);
@@ -9,40 +8,13 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
   const toggleCart = () => {
     setShowCart(!showCart); // Toggle cart visibility
   };
-  const handleSubmit = async () => {
-    try {
-      const message = encodeURIComponent(
-        "Hello This is a confirmation that Twilio is working. Chitwan Lodu!"
-      );
-      const phoneNumber = encodeURIComponent("+917251957211");
-
-      const response = await fetch(
-        `https://bharat-vyaapar-setu-e522.onrender.com/api/send-alert?message=${message}&phoneNumber=${phoneNumber}`,
-        {
-          method: "GET",
-        }
-      );
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data.message);
-        toast.success(data.message);
-      } else {
-        const error = await response.json();
-        toast.error(error.error || "Failed to send the alert");
-      }
-    } catch (err) {
-      console.error(err);
-      toast.error("An unexpected error occurred.");
-    }
-  };
 
   return (
     <>
       <TopBar />
       <header className="navbackground py-3 border-bottom">
         <div
-          className="container d-flex flex-wrap justify-content-between align-items-center py-3"
+          className="container d-flex flex-wrap justify-content-between align-items-center py-3" //container
           style={{ gap: "10px" }}
         >
           {/* Logo */}
@@ -230,11 +202,11 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
           </ul>
         </div>
       </header>
-      <nav className="navbackground border-bottom">
-        <div className="container d-flex flex-wrap">
+      <nav className="navbackground border-bottom"> 
+        <div className="container d-flex flex-wrap"> 
           <ul className="nav me-auto">
             <li className="nav-item d-flex align-items-center position-relative">
-              {/* Hamburger icon */}
+              {/* Hamburger icon //container */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="15"
@@ -330,12 +302,8 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                 </li>
                 <li className="nav-item">
                   <a
-                    href="/"
+                    href="/communication"
                     className="nav-link text-white px-2"
-                    onClick={(e) => {
-                      e.preventDefault(); // Prevent default anchor behavior
-                      handleSubmit(); // Call your custom submit function
-                    }}
                   >
                     Communication
                   </a>

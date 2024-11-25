@@ -16,6 +16,7 @@ import Chatbot from "./components/ChatBot"; // Import your chatbot component
 import SocialDetails from "./components/SocialDetails";
 import { MapInsights } from "./components/MapInsights";
 import DocumentCompliance from "./components/DocCompliance/DocumentCompliance";
+import Alert from "./components/Communication/alert";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
@@ -88,6 +89,7 @@ function App() {
         <Route path="/seller" element={<Seller />} />
         <Route path="/buyer" element={<Buyer />} />
         <Route path="/document-compliance" element={<DocumentCompliance />} />
+        <Route path="/communication" element={<Alert />} />
       </Routes>
 
       <Footer />

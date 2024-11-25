@@ -48,8 +48,8 @@ router.get("/session", async (req, res) => {
 });
 
 
-router.get("/send-alert", async (req, res) => {
-  const { message, phoneNumber } = req.query; // Get data from query parameters
+router.post("/send-alert", async (req, res) => {
+  const { message, phoneNumber } = req.body; // Get data from the request body
 
   if (!message || !phoneNumber) {
     return res.status(400).json({
@@ -59,10 +59,11 @@ router.get("/send-alert", async (req, res) => {
   }
 
   try {
-    await sendAlert(message, phoneNumber); // Call the Twilio function
-    res
-      .status(200)
-      .json({ success: true, message: "Alert sent successfully!" });
+    // Call the Twilio function to send the alert
+    await sendAlert(message, phoneNumber);
+
+    // Respond with success message
+    res.status(200).json({ success: true, message: "Alert sent successfully!" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, error: "Failed to send alert." });
