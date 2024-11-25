@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import Loader from "../Loader/Loader"
 import styles from "./DocumentCompliance.module.css";
 
 const DocumentCompliance = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState("");
   const [results, setResults] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
@@ -27,6 +29,8 @@ const DocumentCompliance = () => {
     const formData = new FormData();
     formData.append("document", file);
 
+    setLoading(true); // Start loading
+
     try {
       const response = await fetch(
         "https://bharat-vyaapar-setu-e522.onrender.com/api/check-compliance",
@@ -40,6 +44,8 @@ const DocumentCompliance = () => {
     } catch (error) {
       console.error("Error uploading file:", error);
       setError("Failed to upload file. Please try again.");
+    } finally {
+      setLoading(false); // Stop loading
     }
   };
 
@@ -59,11 +65,14 @@ const DocumentCompliance = () => {
             required
           />
           {error && <p className={styles.error}>{error}</p>}
-          <button type="submit" className={styles.button} disabled={!file}>
-            Check Compliance
+          <button type="submit" className={styles.button} disabled={!file || loading}>
+            {loading ? "Processing..." : "Check Compliance"}
           </button>
         </form>
-        {results && (
+
+        {loading && <Loader />}
+
+        {results && !loading && (
           <div className={styles.results}>
             <h2 className={results.compliant ? styles.success : styles.failure}>
               {results.compliant
