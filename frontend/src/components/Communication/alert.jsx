@@ -67,7 +67,7 @@ const Alert = () => {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <h1 className="header">Send Alert</h1>
+        <h1 className="header-alert">Send Alert</h1>
         <form className={styles.form} onSubmit={handleSubmit}>
           <label htmlFor="countryCode" className={styles.label}>
             Country Code:
