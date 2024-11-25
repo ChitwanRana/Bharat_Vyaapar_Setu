@@ -1,12 +1,35 @@
 import { useState } from "react";
 import TopBar from "./TopBar";
 import "./ShoppingCart.css";
+import { toast } from "react-toastify";
 
 const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
   const [showCart, setShowCart] = useState(false);
 
   const toggleCart = () => {
     setShowCart(!showCart); // Toggle cart visibility
+  };
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch(
+        "https://bharat-vyaapar-setu-e522.onrender.com/api/twilio?message=Hello%20Divyanshu&phoneNumber=+919879618851",
+        {
+          method: "GET",
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.message);
+        toast.success(data.message);
+      } else {
+        const error = await response.json();
+        toast.error(error.error || "Failed to send the alert");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("An unexpected error occurred.");
+    }
   };
 
   return (
@@ -284,21 +307,37 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
               <>
                 <li className="nav-item">
                   <a
+                    href="/buyer"
+                    className="nav-link text-white px-2 active"
+                    aria-current="page"
+                  >
+                    Dashboard
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
                     href="/"
                     className="nav-link text-white px-2 active"
                     aria-current="page"
                   >
-                    How to ?
+                    Document Compliance
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    href="/"
+                    className="nav-link text-white px-2"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default anchor behavior
+                      handleSubmit(); // Call your custom submit function
+                    }}
+                  >
+                    Communication
                   </a>
                 </li>
                 <li className="nav-item">
                   <a href="/" className="nav-link text-white px-2">
-                    FAQs
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a href="/" className="nav-link text-white px-2">
-                    About
+                    Real Time Insight
                   </a>
                 </li>
               </>

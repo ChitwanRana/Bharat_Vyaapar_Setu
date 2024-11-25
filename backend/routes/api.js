@@ -47,9 +47,8 @@ router.get("/session", async (req, res) => {
   });
 });
 
-router.get("/send-alert-trial", async (req, res) => {
-  const message = "Hello Divyanshu";
-  const phoneNumber = "+919879618851"; // Ensure it has a leading '+'
+router.get("/twilio", async (req, res) => {
+  const { message, phoneNumber } = req.query; // Get message and phoneNumber from query parameters
 
   if (!message || !phoneNumber) {
     return res
@@ -58,7 +57,7 @@ router.get("/send-alert-trial", async (req, res) => {
   }
 
   try {
-    await sendAlert(message, phoneNumber); // Call the Twilio function
+    await sendAlert(message, phoneNumber);
     res
       .status(200)
       .json({ success: true, message: "Trial alert sent successfully!" });
