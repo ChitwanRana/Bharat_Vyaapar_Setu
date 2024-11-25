@@ -44,15 +44,18 @@ const Alert = () => {
           body: JSON.stringify(payload),
         }
       );
-
+      const data = await response.json();
+      if (!data.success) {
+        toast.error(data.error);  // Display error message from backend
+      }
       if (response.ok) {
-        const data = await response.json();
+        
         toast.success(data.message || "Alert sent successfully!");
         setPhoneNumber("");
         setCountryCode("");
       } else {
         const error = await response.json();
-        toast.error(error.error || "Failed to send the alert");
+        toast.error("Alert Error");
       }
     } catch (err) {
       console.error(err);

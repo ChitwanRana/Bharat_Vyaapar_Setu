@@ -47,7 +47,6 @@ router.get("/session", async (req, res) => {
   });
 });
 
-
 router.post("/send-alert", async (req, res) => {
   const { message, phoneNumber } = req.body; // Get data from the request body
 
@@ -63,10 +62,12 @@ router.post("/send-alert", async (req, res) => {
     await sendAlert(message, phoneNumber);
 
     // Respond with success message
-    res.status(200).json({ success: true, message: "Alert sent successfully!" });
+    res
+      .status(200)
+      .json({ success: true, message: "Alert sent successfully!" });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ success: false, error: "Failed to send alert." });
+    res.status(500).json({ success: false, error: err.message });
   }
 });
 
