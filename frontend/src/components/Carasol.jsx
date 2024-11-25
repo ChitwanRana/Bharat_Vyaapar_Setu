@@ -64,8 +64,8 @@ const CarouselComponent = () => {
                 maxWidth: "800px",
               }}
             >
-              <h1 style={{ color: "#130f26" }}>Compare Rates.</h1>
-              <h1 style={{ color: "#130f26" }}>Negotiate Smarter.</h1>
+              <h1 style={{ color: "#130f26", textAlign: "left" }}>Compare Rates.</h1>
+              <h1 style={{ color: "#130f26", textAlign: "left" }}>Negotiate Smarter.</h1>
               <p style={{ color: "#130f26" }} className="opacity-75">
                 Instantly fetch and compare shipping rates across Fedex, UPS,
                 DHL and more. Let our AI-Powered chatbot negotiate the best

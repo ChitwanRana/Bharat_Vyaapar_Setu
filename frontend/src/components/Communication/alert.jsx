@@ -5,14 +5,15 @@ import styles from "./alert.module.css";
 const Alert = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [countryCode, setCountryCode] = useState("");
+  const [message, setMessage] = useState(""); // State for message
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Validate inputs
-    if (!countryCode || !phoneNumber) {
-      setError("Please enter both country code and phone number.");
+    if (!countryCode || !phoneNumber || !message) {
+      setError("Please enter country code, phone number, and a message.");
       return;
     }
 
@@ -29,7 +30,7 @@ const Alert = () => {
     setError(""); // Clear previous errors
 
     const payload = {
-      message: "Hello This is a confirmation that Twilio is working.",
+      message: message, // Send the custom message
       phoneNumber: `${countryCode}${phoneNumber}`,
     };
 
@@ -49,13 +50,13 @@ const Alert = () => {
         toast.error(data.error);  // Display error message from backend
       }
       if (response.ok) {
-        
         toast.success(data.message || "Alert sent successfully!");
         setPhoneNumber("");
         setCountryCode("");
+        setMessage(""); // Clear message field after sending
       } else {
         const error = await response.json();
-        toast.error("Alert Error");
+        console.log(error);
       }
     } catch (err) {
       console.error(err);
@@ -66,7 +67,7 @@ const Alert = () => {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <h1>Send Alert</h1>
+        <h1 className="header">Send Alert</h1>
         <form className={styles.form} onSubmit={handleSubmit}>
           <label htmlFor="countryCode" className={styles.label}>
             Country Code:
@@ -93,6 +94,19 @@ const Alert = () => {
             className={styles.input}
             required
           />
+
+          <label htmlFor="message" className={styles.label}>
+            Message:
+          </label>
+          <textarea
+            id="message"
+            placeholder="Enter your custom message here"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className={styles.input}
+            rows="4" // Adjust number of rows for the textarea
+            required
+          ></textarea>
 
           {error && <p className={styles.error}>{error}</p>}
 
