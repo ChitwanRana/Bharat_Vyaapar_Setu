@@ -25,7 +25,7 @@ const SignUp = () => {
     console.log("Form Data:", formData);
 
     try {
-      const response = await fetch("http://localhost:5000/auth/signup", {
+      const response = await fetch("https://bharat-vyaapar-setu-e522.onrender.com/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

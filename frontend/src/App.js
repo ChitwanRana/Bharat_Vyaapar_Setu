@@ -22,7 +22,7 @@ function App() {
 
   // Check login status function
   const checkLoginStatus = async () => {
-    const response = await fetch("http://localhost:5000/api/session", {
+    const response = await fetch("https://bharat-vyaapar-setu-e522.onrender.com/api/session", {
       method: "GET",
       credentials: "include", // To include session cookie
     });
@@ -45,7 +45,7 @@ function App() {
 
   const handleLogout = async () => {
     // Call the logout API endpoint
-    await fetch("http://localhost:5000/auth/logout", {
+    await fetch("https://bharat-vyaapar-setu-e522.onrender.com/auth/logout", {
       method: "POST",
       credentials: "include", // Ensure the session cookie is included
     });
