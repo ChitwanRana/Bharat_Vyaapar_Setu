@@ -23,8 +23,8 @@
     "mongoose": "^8.7.1",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "twilio": "^5.3.6"
-    "react-scripts": "^4.0.0", 
+    "twilio": "^5.3.6",
+    "react-scripts": "^4.0.0"
 
   }
 }
