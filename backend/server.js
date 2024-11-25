@@ -15,11 +15,23 @@ dotenv.config(); // Load environment variables from .env file
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-// Middleware
+// CORS Configuration
+const allowedOrigins = [
+  'https://bharatvyaparsetu.netlify.app', // Deployed frontend
+  'http://localhost:3000', // Local development
+];
 app.use(cors({
-  origin: 'https://bharatvyaparsetu.netlify.app',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
+app.options('*', cors()); // Handle preflight requests
+
 app.use(express.json());
 app.use(bodyParser.json());
 
