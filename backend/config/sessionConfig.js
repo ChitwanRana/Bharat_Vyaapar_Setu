@@ -5,7 +5,6 @@ const MongoStore = require('connect-mongo');
 require('dotenv').config(); // Load environment variables
 
 const sessionConfig = () => {
-  // Create a new MongoStore instance
   const mongoStore = MongoStore.create({
     mongoUrl: process.env.MONGODB_URI,
     collectionName: "sessions",

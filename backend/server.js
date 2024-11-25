@@ -9,6 +9,7 @@ const sessionConfig = require('./config/sessionConfig');
 const passport = require('./middleware/passportMiddleware');
 const authRoutes = require('./routes/auth');
 const apiRoutes = require('./routes/api');
+const complianceRoutes = require('./routes/compliance');
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -54,6 +55,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
+app.use('/api', complianceRoutes);
 
 // 404 Error handler
 /*app.use((req, res, next) => {
