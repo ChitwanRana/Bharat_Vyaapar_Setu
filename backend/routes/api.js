@@ -47,30 +47,16 @@ router.get("/session", async (req, res) => {
   });
 });
 
-router.get("/twilio", async (req, res) => {
-  const { message, phoneNumber } = req.query; // Get message and phoneNumber from query parameters
+
+router.get("/send-alert", async (req, res) => {
+  const { message, phoneNumber } = req.query; // Get data from query parameters
 
   if (!message || !phoneNumber) {
-    return res
-      .status(400)
-      .json({ success: false, error: "Message and phoneNumber are required." });
+    return res.status(400).json({
+      success: false,
+      error: "Message and phoneNumber are required.",
+    });
   }
-
-  try {
-    await sendAlert(message, phoneNumber);
-    res
-      .status(200)
-      .json({ success: true, message: "Trial alert sent successfully!" });
-  } catch (err) {
-    console.error("Error sending trial alert:", err);
-    res
-      .status(500)
-      .json({ success: false, error: "Failed to send trial alert." });
-  }
-});
-
-router.post("/send-alert", async (req, res) => {
-  const { message, phoneNumber } = req.body;
 
   try {
     await sendAlert(message, phoneNumber); // Call the Twilio function
@@ -78,6 +64,7 @@ router.post("/send-alert", async (req, res) => {
       .status(200)
       .json({ success: true, message: "Alert sent successfully!" });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ success: false, error: "Failed to send alert." });
   }
 });
