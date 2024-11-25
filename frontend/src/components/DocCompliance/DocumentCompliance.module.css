@@ -1,0 +1,107 @@
+.main{
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+/* Header */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Styles */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.label {
+    font-size: 1rem;
+    color: #333;
+    text-align: left;
+}
+
+.fileInput {
+    padding: 10px;
+    border: 2px dashed #007bff;
+    border-radius: 5px;
+    background-color: #e9f5ff;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.fileInput:hover {
+    border-color: #0056b3;
+}
+
+.button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* Results Section */
+.results {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.success {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.failure {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Issues List */
+.issueList {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.issue {
+    color: #dc3545;
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}

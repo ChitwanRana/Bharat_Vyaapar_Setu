@@ -15,6 +15,7 @@ import NotiFlow from "./components/NotiFlow";
 import Chatbot from "./components/ChatBot"; // Import your chatbot component
 import SocialDetails from "./components/SocialDetails";
 import { MapInsights } from "./components/MapInsights";
+import DocumentCompliance from "./components/DocCompliance/DocumentCompliance";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Track login state
@@ -86,6 +87,7 @@ function App() {
         {/* Seller Route */}
         <Route path="/seller" element={<Seller />} />
         <Route path="/buyer" element={<Buyer />} />
+        <Route path="/document-compliance" element={<DocumentCompliance />} />
       </Routes>
 
       <Footer />

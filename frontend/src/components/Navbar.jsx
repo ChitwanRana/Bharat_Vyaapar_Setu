@@ -321,7 +321,7 @@ const Navbar = ({ accountType, isLoggedIn, handleLogout }) => {
                 </li>
                 <li className="nav-item">
                   <a
-                    href="/"
+                    href="/document-compliance"
                     className="nav-link text-white px-2 active"
                     aria-current="page"
                   >
